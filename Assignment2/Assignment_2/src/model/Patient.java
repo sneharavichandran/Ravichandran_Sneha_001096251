@@ -69,7 +69,7 @@ public class Patient {
         this.Lastname = Lastname;
     }
   
-    public void newVitalSign(Vitalsigns v)
+    public Vitalsigns newVitalSign(Vitalsigns v)
     {
         
         if (vitals.isEmpty() && k==0)
@@ -77,10 +77,12 @@ public class Patient {
             this.current=v;
             k=1;
             //System.out.println("its empty");
+            return current;
         }
         else{
             vitals.add(this.current);
             this.current=v;
+            return current;
         }
     }
     boolean isThisVitalSignNormal(String s, Vitalsigns v)
@@ -264,7 +266,7 @@ public class Patient {
         return false;
         
     }
-    boolean PatientNormal(Vitalsigns v)
+    boolean isPatientNormal(Vitalsigns v)
     {
         
         if (age>=0 && age<=0.1)

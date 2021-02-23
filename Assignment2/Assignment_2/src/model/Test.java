@@ -79,9 +79,9 @@ BufferedReader br=new BufferedReader(r);
         System.out.println("Enter Patient's weight in pounds");
         cur.setWeightp(Double.parseDouble(br.readLine()));
          System.out.println(dtf.format(now)); 
-         cur.setTimestamp(now);
-        p.newVitalSign(cur);
-        System.out.println("do you want to enter new vitals for the same patient?y/n");
+        cur.setTimestamp(now);
+        cur=p.newVitalSign(cur);
+        System.out.println("Do you want to enter new vitals for the same patient?y/n");
         String counter1=br.readLine();
         if("n".equals(counter1))
         {
@@ -90,13 +90,13 @@ BufferedReader br=new BufferedReader(r);
         }
         }
         pa.add(p);
-        System.out.println("do you want to input a vital sign and find out if the patient's range is normal?y/n");
+        System.out.println("Do you want to input a vital sign and find out if the patient's range is normal?y/n");
         String counter2=br.readLine();
         if("y".equals(counter2))
         {
             System.out.println("Please input a vital sign name (Respiratory rate, Heart rate, Systolic blood pressure, Weight kg, Weight pounds)");
             String counter3=br.readLine();
-            System.out.println("Is this Vital sign normal: "+p.isThisVitalSignNormal(counter3,p.getCurrent()));
+            System.out.println(counter3+" Vital sign status: "+p.isThisVitalSignNormal(counter3,p.getCurrent()));
             
         }
         //value=p.PatientNormal();
@@ -110,7 +110,7 @@ BufferedReader br=new BufferedReader(r);
             System.out.println(" Current vitals");
             System.out.println("Patient name "+ p.getFirstname()+ " "+ p.getLastname());
             printVitals(p.getCurrent());
-           System.out.println("Recent vitals status "+ p.PatientNormal(p.getCurrent()));
+           System.out.println("Recent vitals status "+ p.isPatientNormal(p.getCurrent()));
            ArrayList <Vitalsigns> vlist=p.getVitals();
            for(Vitalsigns v: vlist)
            {
@@ -122,7 +122,7 @@ BufferedReader br=new BufferedReader(r);
                System.out.println("Weight in kg's "+v.getWeightk());
                System.out.println("Weight in pounds "+v.getWeightp());
                System.out.println("Timestamp "+v.getTimestamp());
-               System.out.println("Vitals status "+ p.PatientNormal(v));
+               System.out.println("Vitals status "+ p.isPatientNormal(v));
                num++;
            }
         }   
