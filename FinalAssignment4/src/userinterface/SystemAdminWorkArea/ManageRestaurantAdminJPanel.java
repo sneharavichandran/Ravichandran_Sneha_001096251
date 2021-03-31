@@ -31,9 +31,10 @@ public class ManageRestaurantAdminJPanel extends javax.swing.JPanel {
      */
     public ManageRestaurantAdminJPanel(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
-
+        
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
+        populateComboBox();
 
        // populateCustomerTable();
     }
@@ -199,7 +200,7 @@ public class ManageRestaurantAdminJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        populateComboBox();
+        
         Restaurant restaurant= (Restaurant) aa.getSelectedItem();
         String name = txtRestaurantName.getText();
         String username= txtUserName.getText();

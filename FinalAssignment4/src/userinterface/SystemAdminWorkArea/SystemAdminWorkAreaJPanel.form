@@ -93,10 +93,11 @@
                                       <Component id="btnManageRestaurants" max="32767" attributes="0"/>
                                       <Component id="btnManageCustomers" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="btnManageRestaurantAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="240" max="32767" attributes="0"/>
+                      <EmptySpace pref="235" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -114,7 +115,9 @@
                       <Component id="btnManageRestaurants" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnManageDeliveryMan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="175" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnManageRestaurantAdmin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="128" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -140,7 +143,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnManageRestaurants">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
+                <Property name="text" type="java.lang.String" value="Manage Restaurant Admin"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRestaurantsActionPerformed"/>
@@ -152,6 +155,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDeliveryManActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageRestaurantAdmin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Restaurants"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageRestaurantAdminActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

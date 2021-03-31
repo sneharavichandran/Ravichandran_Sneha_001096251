@@ -194,7 +194,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-
+        populateComboBox();
         Restaurant restaurant= (Restaurant) aa.getSelectedItem();
         String name = txtDeliveryManName.getText();
         String username= txtUserName.getText();

@@ -8,6 +8,7 @@ package Business;
 
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
@@ -20,9 +21,11 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
+    String name;
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private ArrayList<Restaurant> restaurantList;
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 
@@ -33,7 +36,7 @@ public class EcoSystem extends Organization{
     
     public static EcoSystem getInstance(){
         if(business==null){
-            business=new EcoSystem();
+            business=new EcoSystem( new RestaurantDirectory(), new CustomerDirectory(), new DeliveryManDirectory());
         }
         return business;
     }
@@ -44,11 +47,24 @@ public class EcoSystem extends Organization{
         roleList.add(new SystemAdminRole());
         return roleList;
     }
+    
+    
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
     }
 
+    
+     public ArrayList<Restaurant> getRestaurantList() {
+         restaurantList= restaurantDirectory.getRestaurantList();
+        return restaurantList;
+    }
+     public Restaurant addRestaurantList(String name) {
+         this.name=name;
+         System.out.println("boho");
+         return restaurantDirectory.createAndAddRestaurant(name);
+    }
+    
     
     public boolean checkIfUserIsUnique(String userName){
        //

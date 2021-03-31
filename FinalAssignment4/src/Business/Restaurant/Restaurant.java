@@ -5,17 +5,24 @@
  */
 package Business.Restaurant;
 
+import Business.Organization;
+import Business.Role.AdminRole;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
-public abstract class Restaurant extends Business.Organization {
+public class Restaurant extends Organization {
     private String name;
     private int id;
+    
     private static int count = 1;
 
     public Restaurant(String name) {
         this.name=name;
+        
         //id = count;
         //count++;
     }

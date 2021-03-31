@@ -27,7 +27,7 @@ public class RestaurantDirectory {
     }
     
     public RestaurantDirectory(){
-        restaurantList=new ArrayList<Restaurant>();
+        restaurantList=new ArrayList<>();
     }
     
     //Create enterprise
@@ -37,6 +37,6 @@ public class RestaurantDirectory {
             Restaurant restaurant=new Restaurant(name);
             restaurantList.add(restaurant);
         
-        return enterprise;
+        return restaurant;
     }
 }
