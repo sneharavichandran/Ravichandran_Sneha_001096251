@@ -74,6 +74,9 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         customerJTable = new javax.swing.JTable();
+        btnUpdate = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 204, 204));
 
         lblName.setText("Name:");
 
@@ -119,6 +122,13 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(customerJTable);
 
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,7 +144,14 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSave))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnUpdate)
+                                        .addComponent(btnDelete)))
+                                .addGap(0, 60, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -148,55 +165,70 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblName2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnSubmit)
-                                            .addComponent(btnSave))
-                                        .addContainerGap(248, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnDelete)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                                        .addComponent(btnSubmit)
+                                        .addGap(54, 54, 54)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelete, btnSave, btnUpdate});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnBack)
                 .addGap(7, 7, 7)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSubmit)
-                    .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName1)
-                    .addComponent(btnSave))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName2)
-                    .addComponent(btnDelete))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUpdate))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSubmit)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
-        String name = txtCustomerName.getText();
+       /* String name = txtCustomerName.getText();
         String username= txtUserName.getText();
         String password = txtPassword.getText();
         Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
-        UserAccount useraccount= ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new CustomerRole());
+        UserAccount useraccount= ecosystem.getUserAccountDirectory().createUserAccount(name,username, password, employee, new CustomerRole());*/
         //customer.setName(name);
 
         //populateCustomerTable();
+        if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
+             UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtCustomerName.getText(), txtUserName.getText(), txtPassword.getText(), null, new CustomerRole());
+            Customer customer = ecosystem.getCustomerDirectory().createUserAccount(txtUserName.getText());
+            populateCustomerTable();
+            txtCustomerName.setText("");
+            txtUserName.setText("");
+            txtPassword.setText("");
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -240,11 +272,36 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectRow = customerJTable.getSelectedRow();
+
+        if(selectRow>=0){
+            String name = (String) customerJTable.getValueAt(selectRow, 0);
+            String username= (String) customerJTable.getValueAt(selectRow, 1);
+            String password= (String) customerJTable.getValueAt(selectRow, 2);
+            user=ecosystem.getUserAccountDirectory().authenticateUser(username, password);
+
+            txtCustomerName.setText(name+"");
+            txtUserName.setText(username+"");
+            txtPassword.setText(password+"");
+            
+            JOptionPane.showMessageDialog(null,"Please press save button to save the profile after updating the text field");
+            
+
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Please select a row to update a profile");
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JTable customerJTable;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblName;
