@@ -13,24 +13,43 @@ import java.util.ArrayList;
  * @author harold
  */
 public class DeliveryManDirectory {
-    private ArrayList<DeliveryMan> deliverymanList;
-
-    public DeliveryManDirectory() {
-        deliverymanList = new ArrayList();
+    private ArrayList<DeliveryMan> deliveryManDirectory;
+    private DeliveryMan deliveryMan;
+    
+    public DeliveryManDirectory(){
+        this.deliveryManDirectory =  new ArrayList<DeliveryMan>();
     }
 
-    public ArrayList<DeliveryMan> getDeliveryManList() {
-        return deliverymanList;
+    public ArrayList<DeliveryMan> getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(ArrayList<DeliveryMan> deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+
+    public DeliveryMan getDeliveryMan() {
+        return deliveryMan;
+    }
+
+    public void setDeliveryMan(DeliveryMan deliveryMan) {
+        this.deliveryMan = deliveryMan;
     }
     
-    public DeliveryMan createDeliveryMan(String name){
-        DeliveryMan deliveryman = new DeliveryMan();
-        deliveryman.setName(name);
-        deliverymanList.add(deliveryman);
-        return deliveryman;
+    public DeliveryMan createUserAccount(String username){
+        deliveryMan = new DeliveryMan(username);
+        deliveryManDirectory.add(deliveryMan);
+        return deliveryMan;
     }
-    public void deleteDeliveryMan(DeliveryMan deliveryMan){
-        deliverymanList.remove(deliveryMan); 
+    
+    
+    public void deleteDeliveryMan(String username){
+        for(int i=0;i<deliveryManDirectory.size();i++){
+            if(deliveryManDirectory.get(i).getUserName()==username){
+                deliveryManDirectory.remove(i);
+            }
+        }
+    
     }
     
 }

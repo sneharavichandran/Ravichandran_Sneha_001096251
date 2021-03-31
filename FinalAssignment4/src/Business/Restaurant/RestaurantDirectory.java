@@ -50,8 +50,6 @@ public class RestaurantDirectory {
          restro.setAddress(address);
          restro.setNumber(number);
      }
-     
-    
     
     public void deleteRestaurant(String username){
         for(int i=0;i<restaurantDirectory.size();i++){

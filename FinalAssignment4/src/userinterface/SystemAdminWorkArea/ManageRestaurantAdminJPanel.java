@@ -186,12 +186,18 @@ public class ManageRestaurantAdminJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         
-        Restaurant restaurant= (Restaurant) aa.getSelectedItem();
-        String name = txtName.getText();
-        String username= txtUserName.getText();
-        String password = txtPassword.getText();
-        Employee employee = ecosystem.getEmployeeDirectory().createEmployee(name);
-        UserAccount useraccount= ecosystem.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
+        if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText()))
+        {
+        UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new AdminRole());
+        Restaurant restaurant = ecosystem.getRestaurantDirectory().createUserAccount(txtUserName.getText());
+        populateRestaurantTable();
+        txtName.setText("");
+        txtUserName.setText("");
+        txtPassword.setText("");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Username is not unique");
+        }
         //customer.setName(name);
 
         //populateCustomerTable();

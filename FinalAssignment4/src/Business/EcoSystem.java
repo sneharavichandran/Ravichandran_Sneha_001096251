@@ -93,14 +93,7 @@ public class EcoSystem extends Organization{
      public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
-     public Restaurant addRestaurantList(String name) {
-         //this.name=name;
-         this.restaurantDirectory = new RestaurantDirectory();
-         System.out.println(this.restaurantDirectory);
-         return this.restaurantDirectory.createAndAddRestaurant(name);
-       
-    }
-     private EcoSystem(){
+    private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
     }

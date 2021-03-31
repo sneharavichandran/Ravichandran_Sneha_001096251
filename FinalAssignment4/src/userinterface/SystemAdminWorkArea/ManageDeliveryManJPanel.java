@@ -209,7 +209,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         if(ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(txtUserName.getText())){
-           UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new DeliverManRole());
+        UserAccount userAccount = ecosystem.getUserAccountDirectory().createUserAccount(txtName.getText(), txtUserName.getText(), txtPassword.getText(), null, new DeliverManRole());
         DeliveryMan deliveryman = ecosystem.getDeliveryManDirectory().createUserAccount(txtUserName.getText());
         populateDeliveryManTable();
         txtName.setText("");
