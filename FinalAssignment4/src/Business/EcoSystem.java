@@ -6,7 +6,9 @@
 package Business;
 
 
+import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
@@ -21,22 +23,24 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
-    String name;
+    //String name;
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private ArrayList<Restaurant> restaurantList;
+    private ArrayList<Customer> customerList;
+    private ArrayList<DeliveryMan> deliveryManList;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
-
-        this.restaurantDirectory = restaurantDirectory;
-        this.customerDirectory = customerDirectory;
-        this.deliveryManDirectory = deliveryManDirectory;
+    public EcoSystem() {
+        super(null);
+        this.restaurantDirectory = new RestaurantDirectory();
+        this.customerDirectory = new CustomerDirectory();
+        this.deliveryManDirectory =new DeliveryManDirectory();
     }
     
     public static EcoSystem getInstance(){
         if(business==null){
-            business=new EcoSystem( new RestaurantDirectory(), new CustomerDirectory(), new DeliveryManDirectory());
+            business=new EcoSystem();
         }
         return business;
     }
@@ -47,22 +51,23 @@ public class EcoSystem extends Organization{
         roleList.add(new SystemAdminRole());
         return roleList;
     }
-    
-    
-    private EcoSystem(){
-        super(null);
-       // networkList=new ArrayList<Network>();
-    }
-
-    
      public ArrayList<Restaurant> getRestaurantList() {
          restaurantList= restaurantDirectory.getRestaurantList();
         return restaurantList;
     }
+     public ArrayList<Customer> getCustomerList() {
+         customerList= customerDirectory.getCustomerList();
+        return customerList;
+    }
+     public ArrayList<DeliveryMan> getDeliveryManList() {
+         deliveryManList= deliveryManDirectory.getDeliveryManList();
+        return deliveryManList;
+    }
      public Restaurant addRestaurantList(String name) {
-         this.name=name;
+         //this.name=name;
          System.out.println("boho");
          return restaurantDirectory.createAndAddRestaurant(name);
+       
     }
     
     
