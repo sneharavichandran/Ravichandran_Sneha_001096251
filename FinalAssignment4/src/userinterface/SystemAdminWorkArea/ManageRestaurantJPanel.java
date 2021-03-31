@@ -96,7 +96,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
             customerJTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        lblName.setText("Name:");
+        lblName.setText("Restaurant Name:");
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,6 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
                             .addComponent(lblName)
                             .addGap(18, 18, 18)
                             .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)

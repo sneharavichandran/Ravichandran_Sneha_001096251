@@ -36,6 +36,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateRequestTable(){
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        
+        model.setRowCount(0);
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
+            Object[] row = new Object[4];
+            row[0] = request.getMessage();
+            row[1] = request.getReceiver();
+            row[2] = request.getStatus();
+            String result = ((LabTestWorkRequest) request).getTestResult();
+            row[3] = result == null ? "Waiting" : result;
+            
+            model.addRow(row);
+        }
         
     }
 

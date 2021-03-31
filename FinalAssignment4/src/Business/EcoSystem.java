@@ -27,17 +27,27 @@ public class EcoSystem extends Organization{
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
-    private ArrayList<Restaurant> restaurantList;
-    private ArrayList<Customer> customerList;
-    private ArrayList<DeliveryMan> deliveryManList;
+    //private ArrayList<Restaurant> restaurantList;
+    //private ArrayList<Customer> customerList;
+    //private ArrayList<DeliveryMan> deliveryManList;
 
-    public EcoSystem() {
-        super(null);
-        this.restaurantDirectory = new RestaurantDirectory();
-        this.customerDirectory = new CustomerDirectory();
-        this.deliveryManDirectory =new DeliveryManDirectory();
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
+
+        this.restaurantDirectory = restaurantDirectory;
+        this.customerDirectory = customerDirectory;
+        this.deliveryManDirectory = deliveryManDirectory;
     }
     
+    public RestaurantDirectory getRestaurantDirectory() {
+        if(restaurantDirectory == null){
+            restaurantDirectory = new RestaurantDirectory();
+        }
+        return restaurantDirectory;
+    }
+     public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
     public static EcoSystem getInstance(){
         if(business==null){
             business=new EcoSystem();
@@ -51,23 +61,48 @@ public class EcoSystem extends Organization{
         roleList.add(new SystemAdminRole());
         return roleList;
     }
-     public ArrayList<Restaurant> getRestaurantList() {
+    /* public ArrayList<Restaurant> getRestaurantList() {
          restaurantList= restaurantDirectory.getRestaurantList();
         return restaurantList;
     }
      public ArrayList<Customer> getCustomerList() {
          customerList= customerDirectory.getCustomerList();
         return customerList;
+    }*/
+     public CustomerDirectory getCustomerDirectory() {
+        if(customerDirectory == null){
+            customerDirectory = new CustomerDirectory();
+        }
+        
+        return customerDirectory;
     }
-     public ArrayList<DeliveryMan> getDeliveryManList() {
+     public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
+     /*public ArrayList<DeliveryMan> getDeliveryManList() {
          deliveryManList= deliveryManDirectory.getDeliveryManList();
         return deliveryManList;
+    }*/
+     public DeliveryManDirectory getDeliveryManDirectory() {
+        if(deliveryManDirectory == null){
+            deliveryManDirectory = new DeliveryManDirectory();
+        }
+        
+        return deliveryManDirectory;
+    }
+     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
     }
      public Restaurant addRestaurantList(String name) {
          //this.name=name;
-         System.out.println("boho");
-         return restaurantDirectory.createAndAddRestaurant(name);
+         this.restaurantDirectory = new RestaurantDirectory();
+         System.out.println(this.restaurantDirectory);
+         return this.restaurantDirectory.createAndAddRestaurant(name);
        
+    }
+     private EcoSystem(){
+        super(null);
+       // networkList=new ArrayList<Network>();
     }
     
     

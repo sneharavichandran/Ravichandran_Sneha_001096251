@@ -29,5 +29,8 @@ public class DeliveryManDirectory {
         deliverymanList.add(deliveryman);
         return deliveryman;
     }
+    public void deleteDeliveryMan(DeliveryMan deliveryMan){
+        deliverymanList.remove(deliveryMan); 
+    }
     
 }

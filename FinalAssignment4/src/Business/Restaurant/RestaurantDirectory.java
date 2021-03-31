@@ -14,29 +14,62 @@ import java.util.ArrayList;
  */
 public class RestaurantDirectory {
 
-    public static PopupMenu get;
-        private ArrayList<Restaurant> restaurantList;
-   
-
-    public ArrayList<Restaurant> getRestaurantList() {
-        return restaurantList;
-    }
-
-    public void setRestaurantList(ArrayList<Restaurant> restaurantList) {
-        this.restaurantList = restaurantList;
-    }
-    
+  private ArrayList<Restaurant> restaurantDirectory;
+    private Restaurant restaurant;
+    private Dishes menu;
     public RestaurantDirectory(){
-        restaurantList=new ArrayList<>();
+        restaurantDirectory = new ArrayList<Restaurant>();
+    }
+
+    public ArrayList<Restaurant> getRestaurantDirectory() {
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(ArrayList<Restaurant> restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    
+    
+     public Restaurant createUserAccount(String username){
+        restaurant = new Restaurant(username);
+        restaurantDirectory.add(restaurant);
+        return restaurant;
+    }
+     
+     public void updateRestaurantInfo(Restaurant restro, String name,String number,String address ){
+         restro.setName(name);
+         restro.setAddress(address);
+         restro.setNumber(number);
+     }
+     
+    
+    
+    public void deleteRestaurant(String username){
+        for(int i=0;i<restaurantDirectory.size();i++){
+            if(restaurantDirectory.get(i).getUserName()==username){
+                restaurantDirectory.remove(i);
+            }
+        }
+    
     }
     
-    //Create enterprise
-   public Restaurant createAndAddRestaurant(String name){
+    public Dishes AddMenuDishes(Restaurant restro,String name,String desc,String amount){
+        menu=new Dishes(name, desc, amount);
+        restro.addFoodItem(menu);
+        return menu;
+    }
+    
+    public void DeleteDishes(Restaurant restro,Dishes menu){
+        restro.removeFoodItem(menu);
         
-      
-            Restaurant restaurant=new Restaurant(name);
-            restaurantList.add(restaurant);
-        
-        return restaurant;
     }
 }

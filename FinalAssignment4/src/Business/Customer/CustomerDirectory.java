@@ -29,5 +29,8 @@ public class CustomerDirectory {
         customerList.add(customer);
         return customer;
     }
+    public void deleteCustomer(Customer customer){
+        customerList.remove(customer); 
+    }
     
 }
