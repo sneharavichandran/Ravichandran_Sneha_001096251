@@ -5,7 +5,6 @@
  */
 package Business.DeliveryMan;
 
-import Business.Customer.Customer;
 import java.util.ArrayList;
 
 /**

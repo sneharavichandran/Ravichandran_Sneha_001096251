@@ -4,7 +4,6 @@
  */
 package userinterface;
 
-import Business.ConfigureASystem;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 
@@ -28,7 +27,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
     public MainJFrame() {
         initComponents();
-        //system=ConfigureASystem.configure();
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
     }
@@ -55,6 +53,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
+        loginJButton.setBackground(new java.awt.Color(0, 0, 0));
+        loginJButton.setForeground(new java.awt.Color(255, 255, 255));
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,8 +68,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
+        logoutJButton.setBackground(new java.awt.Color(0, 0, 0));
+        logoutJButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutJButton.setText("Logout");
-        logoutJButton.setEnabled(false);
         logoutJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutJButtonActionPerformed(evt);
@@ -115,6 +118,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jPanel1);
 
+        container.setBackground(new java.awt.Color(204, 204, 255));
         container.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(container);
 
@@ -125,28 +129,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
-        String userName= userNameJTextField.getText();
-        char[] passwordCharArray=passwordField.getPassword();
-        String password = String.valueOf(passwordCharArray);
+        UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
         
-        UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
-        Organization organization = null;
-        if(userAccount==null)
-        {
-            JOptionPane.showMessageDialog(null,"Invalid credentials");
-            return;
-        }
-       else
-        {
-         CardLayout layout=(CardLayout)container.getLayout();
-         container.add("workarea",userAccount.getRole().createWorkArea(container, userAccount, system));
-         layout.next(container);
-         logoutJButton.setEnabled(true);
-         loginJButton.setEnabled(false);
-         userNameJTextField.setEnabled(false);
-         passwordField.setEnabled(false);
-         
-        }
+        CardLayout crdLyt = (CardLayout) container.getLayout();
+        container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
+        crdLyt.next(container);
+        logoutJButton.setEnabled(true);
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed

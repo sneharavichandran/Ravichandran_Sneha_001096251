@@ -13,7 +13,6 @@ import Business.WorkQueue.WorkQueue;
  * @author raunak
  */
 public class UserAccount {
-    
     private String name;
     private String username;
     private String password;
@@ -79,6 +78,7 @@ public class UserAccount {
     public String toString() {
         return username;
     }
+    
     
     
 }

@@ -5,7 +5,6 @@
  */
 package Business.Restaurant;
 
-import java.awt.PopupMenu;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +12,8 @@ import java.util.ArrayList;
  * @author harold
  */
 public class RestaurantDirectory {
-
-  private ArrayList<Restaurant> restaurantDirectory;
+    
+    private ArrayList<Restaurant> restaurantDirectory;
     private Restaurant restaurant;
     private Dishes menu;
     public RestaurantDirectory(){
@@ -50,6 +49,8 @@ public class RestaurantDirectory {
          restro.setAddress(address);
          restro.setNumber(number);
      }
+     
+    
     
     public void deleteRestaurant(String username){
         for(int i=0;i<restaurantDirectory.size();i++){
@@ -70,4 +71,5 @@ public class RestaurantDirectory {
         restro.removeFoodItem(menu);
         
     }
+    
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author harold
  */
 public class DeliveryMan {
-  private String name;
+     private String name;
     private String userName;
     private ArrayList<Order> orderList;
     private String address;
@@ -84,9 +84,12 @@ public class DeliveryMan {
         this.userName = userName;
     }
     
+    
+  
+    
      @Override
     public String toString() {
         return userName;
     }
-    
+   
 }

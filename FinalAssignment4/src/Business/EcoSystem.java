@@ -6,11 +6,8 @@
 package Business;
 
 
-import Business.Customer.Customer;
 import Business.Customer.CustomerDirectory;
-import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
-import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
@@ -23,13 +20,49 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
-    //String name;
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
-    //private ArrayList<Restaurant> restaurantList;
-    //private ArrayList<Customer> customerList;
-    //private ArrayList<DeliveryMan> deliveryManList;
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        if(restaurantDirectory == null){
+            restaurantDirectory = new RestaurantDirectory();
+        }
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public CustomerDirectory getCustomerDirectory() {
+        if(customerDirectory == null){
+            customerDirectory = new CustomerDirectory();
+        }
+        
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        if(deliveryManDirectory == null){
+            deliveryManDirectory = new DeliveryManDirectory();
+        }
+        
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+    
+    
+    
+    
+    
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 
@@ -38,16 +71,6 @@ public class EcoSystem extends Organization{
         this.deliveryManDirectory = deliveryManDirectory;
     }
     
-    public RestaurantDirectory getRestaurantDirectory() {
-        if(restaurantDirectory == null){
-            restaurantDirectory = new RestaurantDirectory();
-        }
-        return restaurantDirectory;
-    }
-     public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
-        this.restaurantDirectory = restaurantDirectory;
-    }
-
     public static EcoSystem getInstance(){
         if(business==null){
             business=new EcoSystem();
@@ -61,43 +84,11 @@ public class EcoSystem extends Organization{
         roleList.add(new SystemAdminRole());
         return roleList;
     }
-    /* public ArrayList<Restaurant> getRestaurantList() {
-         restaurantList= restaurantDirectory.getRestaurantList();
-        return restaurantList;
-    }
-     public ArrayList<Customer> getCustomerList() {
-         customerList= customerDirectory.getCustomerList();
-        return customerList;
-    }*/
-     public CustomerDirectory getCustomerDirectory() {
-        if(customerDirectory == null){
-            customerDirectory = new CustomerDirectory();
-        }
-        
-        return customerDirectory;
-    }
-     public void setCustomerDirectory(CustomerDirectory customerDirectory) {
-        this.customerDirectory = customerDirectory;
-    }
-     /*public ArrayList<DeliveryMan> getDeliveryManList() {
-         deliveryManList= deliveryManDirectory.getDeliveryManList();
-        return deliveryManList;
-    }*/
-     public DeliveryManDirectory getDeliveryManDirectory() {
-        if(deliveryManDirectory == null){
-            deliveryManDirectory = new DeliveryManDirectory();
-        }
-        
-        return deliveryManDirectory;
-    }
-     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
-        this.deliveryManDirectory = deliveryManDirectory;
-    }
     private EcoSystem(){
         super(null);
        // networkList=new ArrayList<Network>();
     }
-    
+
     
     public boolean checkIfUserIsUnique(String userName){
        //

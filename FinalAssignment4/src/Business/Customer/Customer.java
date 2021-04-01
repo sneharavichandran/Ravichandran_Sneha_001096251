@@ -5,36 +5,82 @@
  */
 package Business.Customer;
 
+import Business.Order.Order;
+import Business.Restaurant.Dishes;
+import java.util.ArrayList;
+
 /**
  *
  * @author harold
  */
 public class Customer {
+    
+    
     private String name;
-    private int id;
-    private static int count = 1;
-
-    public Customer() {
-        id = count;
-        count++;
-    }
-
-    public int getId() {
-        return id;
+    private String userName;
+    private ArrayList<Order> orderList;
+    private String address;
+    private String number;
+    
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    @Override
-    public String toString() {
-        return name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
+    
+    public Customer(String userName){
+        this.userName = userName;
+        orderList=new ArrayList<Order>();
+    }
+
+    public ArrayList<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(ArrayList<Order> orderList) {
+        this.orderList = orderList;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+    
+    int id = 1;
+    public void addOrder(String restaurentName, String customerName, String deliverMan, ArrayList<Dishes> Order, String price, String deliveryAddress) {
+        Order order=new Order();
+        order.setOrderId(String.valueOf(id));
+        order.setCustomerName(customerName);
+        order.setRestaurantName(restaurentName);
+        order.setDeliveryMan(deliverMan);
+        order.setOrder(Order);
+        order.setPrice(price);
+        order.setDeliveryAddress(deliveryAddress);
+        order.setStatus("New Order");
+        orderList.add(order);
+        id++;
     }
     
     
