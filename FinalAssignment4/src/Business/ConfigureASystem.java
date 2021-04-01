@@ -4,10 +4,6 @@ import Business.Employee.Employee;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
 
-/**
- *
- * @author rrheg
- */
 public class ConfigureASystem {
     
     public static EcoSystem configure(){
@@ -22,7 +18,7 @@ public class ConfigureASystem {
         
         
         Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
-        
+        //added new parameter
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("SysAdmin","sysadmin", "sysadmin", employee, new SystemAdminRole());
         
         return system;

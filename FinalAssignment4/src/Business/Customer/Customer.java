@@ -9,10 +9,6 @@ import Business.Order.Order;
 import Business.Restaurant.Dishes;
 import java.util.ArrayList;
 
-/**
- *
- * @author harold
- */
 public class Customer {
     
     

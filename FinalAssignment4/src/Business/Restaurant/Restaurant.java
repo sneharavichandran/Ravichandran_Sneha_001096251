@@ -8,10 +8,7 @@ package Business.Restaurant;
 import Business.Order.Order;
 import java.util.ArrayList;
 
-/**
- *
- * @author harold
- */
+
 public class Restaurant {
     private String name;
     private String userName;

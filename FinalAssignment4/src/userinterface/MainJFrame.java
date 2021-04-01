@@ -128,13 +128,16 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
+
+
         UserAccount useraccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
-        
+        if(useraccount==null)
+            JOptionPane.showMessageDialog(null, "Username invalid");
         CardLayout crdLyt = (CardLayout) container.getLayout();
         container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
         crdLyt.next(container);
         logoutJButton.setEnabled(true);
+        
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed

@@ -158,7 +158,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jLabel1.setText("Restaurant");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Previous Orders");
+        jLabel2.setText(" Orders");
 
         tblPreviousOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

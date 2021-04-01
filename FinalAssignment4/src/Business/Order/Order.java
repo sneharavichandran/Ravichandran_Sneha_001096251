@@ -8,10 +8,6 @@ package Business.Order;
 import Business.Restaurant.Dishes;
 import java.util.ArrayList;
 
-/**
- *
- * @author adwai
- */
 public class Order {
     private String orderId;
     private String restaurantName;

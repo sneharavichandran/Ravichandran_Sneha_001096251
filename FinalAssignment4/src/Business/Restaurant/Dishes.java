@@ -5,10 +5,7 @@
  */
 package Business.Restaurant;
 
-/**
- *
- * @author adwai
- */
+
 public class Dishes {
     
     private String name;

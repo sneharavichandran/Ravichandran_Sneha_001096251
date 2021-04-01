@@ -13,10 +13,6 @@ import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
 
-/**
- *
- * @author MyPC1
- */
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
@@ -60,10 +56,6 @@ public class EcoSystem extends Organization{
     }
     
     
-    
-    
-    
-
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
