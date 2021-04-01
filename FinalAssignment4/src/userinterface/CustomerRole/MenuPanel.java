@@ -28,6 +28,7 @@ public class MenuPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     ArrayList<Dishes> items=new ArrayList<Dishes>();
     int sum = 0;
+    //String str ="MENU CARD";
     /**
      * Creates new form RequestLabTestJPanel
      */
@@ -68,6 +69,8 @@ public class MenuPanel extends javax.swing.JPanel {
                      sum=sum+Integer.parseInt(dish.getPrice());
                      tablemodel.addRow(row);
                 }
+                //valueLabel.setText(String.valueOf(sum));
+                //valueLabel.setText(str);
     }
    
     /**
@@ -84,7 +87,6 @@ public class MenuPanel extends javax.swing.JPanel {
         btnOrder = new javax.swing.JButton();
         txtAddress = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
-        valueLabel = new javax.swing.JLabel();
         enterpriseLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCart = new javax.swing.JTable();
@@ -131,11 +133,8 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 130, -1));
-
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        enterpriseLabel.setText("Your Cart :");
+        enterpriseLabel.setText("MENU CARD");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 120, 30));
 
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
@@ -200,7 +199,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
         btnRemoveFromCart.setBackground(new java.awt.Color(0, 0, 0));
         btnRemoveFromCart.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemoveFromCart.setText("Remove Item");
+        btnRemoveFromCart.setText("Remove All Items");
         btnRemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveFromCartActionPerformed(evt);
@@ -264,6 +263,8 @@ public class MenuPanel extends javax.swing.JPanel {
             items.remove(item);
             DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
         model.setRowCount(0);
+        //sum=0;
+        //valueLabel.setText(String.valueOf(sum));
            // commented no use
                 }  
     }//GEN-LAST:event_btnRemoveFromCartActionPerformed
@@ -282,6 +283,5 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblMenu;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }
