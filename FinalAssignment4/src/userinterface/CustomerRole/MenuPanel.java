@@ -110,7 +110,7 @@ public class MenuPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(0, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnOrder.setBackground(new java.awt.Color(0, 0, 0));

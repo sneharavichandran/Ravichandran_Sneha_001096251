@@ -76,7 +76,7 @@ public class ManageOrders extends javax.swing.JPanel {
         btnViewOrder = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(0, 204, 204));
 
         tblOrderDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,7 +146,7 @@ public class ManageOrders extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnBack)
-                .addContainerGap(524, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(btnViewOrder)

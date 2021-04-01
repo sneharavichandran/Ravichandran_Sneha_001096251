@@ -99,7 +99,7 @@ public class ManageMenu extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel1.setText("Food Name:");
 

@@ -71,7 +71,7 @@ public class OrderDetails extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(0, 204, 204));
 
         tblOrderDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

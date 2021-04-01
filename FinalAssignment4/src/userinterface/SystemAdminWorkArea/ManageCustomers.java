@@ -77,7 +77,7 @@ public class ManageCustomers extends javax.swing.JPanel {
         btnCreateCustomer = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(0, 204, 204));
 
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
