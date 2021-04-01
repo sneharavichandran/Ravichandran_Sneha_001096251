@@ -20,6 +20,7 @@ public class DB4OUtil {
     private static DB4OUtil dB4OUtil;
     
     public synchronized static DB4OUtil getInstance(){
+        //dB4OUtil = new DB4OUtil();
         if (dB4OUtil == null){
             dB4OUtil = new DB4OUtil();
         }
