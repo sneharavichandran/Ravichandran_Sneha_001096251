@@ -11,10 +11,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author adwai
- */
+
 public class ManageRestroInfo extends javax.swing.JPanel {
 
     /**
