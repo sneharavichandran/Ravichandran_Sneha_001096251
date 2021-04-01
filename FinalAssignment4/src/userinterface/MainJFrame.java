@@ -137,6 +137,9 @@ public class MainJFrame extends javax.swing.JFrame {
         container.add("Login", useraccount.getRole().createWorkArea(container, useraccount, system));
         crdLyt.next(container);
         logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
+        loginJButton.setEnabled(false);
         
     }//GEN-LAST:event_loginJButtonActionPerformed
 
